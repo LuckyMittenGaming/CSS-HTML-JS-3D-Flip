@@ -1,0 +1,173 @@
+
+:root {
+  --text-font: 'Anton', sans-serif;
+  --text-size: 1rem;
+  --text-weight: 700;
+  --text-color: #ffffff;
+  --button-text-color: #ffffff;
+  --button-border-color: #FF00BF;
+  --button-bg-color: #000000;
+  --button-border-width: 3px;
+  --glow-effect: 0 0 10px #FF00C8;
+  --van-glow: drop-shadow(0 0 4px #FF00C8);
+}
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #000;
+  font-family: var(--text-font);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.container {
+  flex: 1 1 clamp(260px, 28vw, 320px);
+  height: clamp(360px, 40vw, 450px);
+  perspective: 2000px;
+  cursor: pointer;
+  max-width: 100%;
+}
+
+.scene {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.flipped .scene {
+  transform: rotateY(180deg);
+}
+
+.layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.van {
+  transform: translateZ(70px);
+  filter: var(--van-glow);
+}
+
+.van-back {
+  transform: rotateY(180deg) translateZ(100px);
+  filter: var(--van-glow);
+  z-index: 3;
+}
+
+.logo, .logo-back {
+  background-size: 90%;
+  opacity: 0.95;
+  transform: translateZ(0px);
+  z-index: 2;
+}
+
+.logo-back {
+  transform: rotateY(180deg) translateZ(0px);
+}
+
+.text-front {
+  transform: translateZ(160px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  padding: 30px;
+  text-align: center;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.text-front p,
+.text-back p {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--text-color);
+  text-shadow: 1px 1px 0 #000, 2px 2px 2px #000;
+}
+
+.text-back {
+  transform: rotateY(180deg) translateZ(160px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  padding: 30px;
+  text-align: center;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.button {
+  background: var(--button-bg-color);
+  border: var(--button-border-width) solid var(--button-border-color);
+  color: var(--button-text-color);
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 800;
+  border-radius: 8px;
+  cursor: pointer;
+  text-shadow: 1px 1px 0 #000, 2px 2px 2px #000;
+  margin-top: 15px;
+}
+
+.button:hover {
+  box-shadow: var(--glow-effect);
+}
+
+.layer.van, .layer.logo {
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+
+.layer.van-back, .layer.logo-back, .layer.text-back {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.container.flipped .layer.van,
+.container.flipped .layer.logo {
+  opacity: 0;
+}
+
+.container.flipped .layer.van-back,
+.container.flipped .layer.logo-back,
+.container.flipped .layer.text-back {
+  opacity: 1;
+}
+
+.hover-flip .scene {
+  transition: transform 1s ease;
+}
+
+.hover-flip:hover .scene {
+  transform: rotateY(180deg);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex: 0 0 100%;
+    max-width: 450px;
+    margin-bottom: 20px;
+  }
+}
