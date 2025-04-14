@@ -1,0 +1,67 @@
+<!-- HTML & JavaScript: bizly-flip-html-js.txt -->
+<div class="card-wrapper">
+  <!-- Card 1 -->
+  <div class="container">
+    <div class="scene">
+      <div class="layer van" style="background-image: url('https://assets.cdn.filesafe.space/3DYuJelsoG9xx3CpW438/media/6717f94f5042ff0a6da095a5.png');"></div>
+      <div class="layer logo" style="background-image: url('https://assets.cdn.filesafe.space/3DYuJelsoG9xx3CpW438/media/6717fa45e2385fe9e9894fe8.png');"></div>
+      <div class="layer van-back" style="background-image: url('https://assets.cdn.filesafe.space/3DYuJelsoG9xx3CpW438/media/6717f94f5042ff0a6da095a5.png');"></div>
+      <div class="layer logo-back" style="background-image: url('https://assets.cdn.filesafe.space/3DYuJelsoG9xx3CpW438/media/6717fa45e2385fe9e9894fe8.png');"></div>
+      <div class="layer text-front">
+        <p><strong>Party Bus:</strong><br>Fits 20–40 Passengers</p>
+      </div>
+      <div class="layer text-back">
+        <p><strong>Don't walk, Sprint</strong> to your next event with one of our 12 passenger vans.</p>
+        <div class="button" onclick="window.open('https://lasvegaspartybus.com', '_blank')">BOOK NOW!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="container">
+    <div class="scene">
+      <div class="layer van" style="background-image: url('https://assets.cdn.filesafe.space/3DYuJelsoG9xx3CpW438/media/6717f9dc666eda308a4ade6f.png');"></div>
+      <div class="layer logo" style="background-image: url('https://assets.cdn.filesafe.space/3DYuJelsoG9xx3CpW438/media/6717fa45e2385fe9e9894fe8.png');"></div>
+      <div class="layer van-back" style="background-image: url('https://assets.cdn.filesafe.space/3DYuJelsoG9xx3CpW438/media/6717f9dc666eda308a4ade6f.png');"></div>
+      <div class="layer logo-back" style="background-image: url('https://assets.cdn.filesafe.space/3DYuJelsoG9xx3CpW438/media/6717fa45e2385fe9e9894fe8.png');"></div>
+      <div class="layer text-front">
+        <p><strong>Sprinter Van:</strong><br>Fits 12–16 Passengers</p>
+      </div>
+      <div class="layer text-back">
+        <p><strong>Don't walk, Sprint</strong> to your next event with one of our 12 passenger vans.</p>
+        <div class="button" onclick="window.open('https://lasvegaspartybus.com', '_blank')">BOOK NOW!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="container">
+    <div class="scene">
+      <div class="layer van" style="background-image: url('https://assets.cdn.filesafe.space/3DYuJelsoG9xx3CpW438/media/6717fa06df911ef0df529cb9.png');"></div>
+      <div class="layer logo" style="background-image: url('https://assets.cdn.filesafe.space/3DYuJelsoG9xx3CpW438/media/6717fa45e2385fe9e9894fe8.png');"></div>
+      <div class="layer van-back" style="background-image: url('https://assets.cdn.filesafe.space/3DYuJelsoG9xx3CpW438/media/6717fa06df911ef0df529cb9.png');"></div>
+      <div class="layer logo-back" style="background-image: url('https://assets.cdn.filesafe.space/3DYuJelsoG9xx3CpW438/media/6717fa45e2385fe9e9894fe8.png');"></div>
+      <div class="layer text-front">
+        <p><strong>Stretched Hummer:</strong><br>Fits 10–20 Passengers</p>
+      </div>
+      <div class="layer text-back">
+        <p><strong>Don't walk, Sprint</strong> to your next event with one of our 12 passenger vans.</p>
+        <div class="button" onclick="window.open('https://lasvegaspartybus.com', '_blank')">BOOK NOW!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const containers = document.querySelectorAll('.container');
+    containers.forEach(container => {
+      if (isTouch) {
+        container.addEventListener('click', () => container.classList.toggle('flipped'));
+      } else {
+        container.classList.add('hover-flip');
+      }
+    });
+  });
+</script>

@@ -1,0 +1,81 @@
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+}
+.container {
+  flex: 1 1 clamp(260px, 28vw, 320px);
+  height: clamp(360px, 40vw, 450px);
+  perspective: 2000px;
+  cursor: pointer;
+  max-width: 100%;
+}
+.scene {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.flipped .scene,
+.hover-flip:hover .scene {
+  transform: rotateY(180deg);
+}
+.layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+.van, .van-back {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+.van {
+  transform: translateZ(70px);
+}
+.van-back {
+  transform: rotateY(180deg) translateZ(100px);
+}
+.logo, .logo-back {
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translateZ(0px);
+  opacity: 0.95;
+}
+.logo-back {
+  transform: rotateY(180deg);
+}
+.text-front, .text-back {
+  z-index: 5;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+}
+.text-front {
+  transform: translateZ(160px);
+}
+.text-back {
+  transform: rotateY(180deg) translateZ(160px);
+}
+.button {
+  margin-top: 12px;
+  background: black;
+  color: white;
+  padding: 12px 24px;
+  border: 2px solid #FF00C8;
+  font-weight: bold;
+  cursor: pointer;
+}
