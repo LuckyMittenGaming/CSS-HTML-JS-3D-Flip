@@ -1,14 +1,12 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-  const containers = document.querySelectorAll('.container');
-
-  containers.forEach(container => {
+  const cards = document.querySelectorAll('.container');
+  cards.forEach(card => {
     if (isTouch) {
-      container.addEventListener('click', () => {
-        container.classList.toggle('flipped');
-      });
+      card.addEventListener('click', () => card.classList.toggle('flipped'));
     } else {
-      container.classList.add('hover-flip');
+      card.classList.add('hover-flip');
     }
   });
 });
